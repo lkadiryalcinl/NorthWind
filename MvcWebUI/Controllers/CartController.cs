@@ -27,24 +27,44 @@ namespace MvcWebUI.Controllers
             var cart = _cartSessionHelper.GetCart("cart");
 
             _cartService.AddToCart(cart, product);
-            _cartSessionHelper.SetCart("cart",cart);
-            return RedirectToAction("Index","Product");
+            _cartSessionHelper.SetCart("cart", cart);
+            TempData.Add("message", product.ProductName + " succesfully added to cart.");
+            return RedirectToAction("Index", "Product");
         }
 
         public IActionResult RemoveFromCart(int productId)
         {
+            Product product = _productService.GetByID(productId);
             var cart = _cartSessionHelper.GetCart("cart");
-            _cartService.RemoveFromCart(cart,productId);
+
+            _cartService.RemoveFromCart(cart, productId);
             _cartSessionHelper.SetCart("cart", cart);
+            TempData.Add("message", product.ProductName + " succesfully removed from cart.");
             return RedirectToAction("Index", "Cart");
         }
 
-        public IActionResult AdjustQuantity(int productId,string adjustType)
+        public IActionResult AdjustQuantity(int productId, string adjustType)
         {
+            Product product = _productService.GetByID(productId);
             var cart = _cartSessionHelper.GetCart("cart");
-            _cartService.AdjustQuantity(cart,productId,adjustType);
+
+            string res = _cartService.AdjustQuantity(cart, productId, adjustType);
             _cartSessionHelper.SetCart("cart", cart);
+
+            if (res == "removed")
+                TempData.Add("message", product.ProductName + " succesfully removed from cart.");
+
             return RedirectToAction("Index", "Cart");
+        }
+
+        public IActionResult Complete()
+        {
+            var model = new ShippingDetailsViewModel
+            {
+                ShippingDetail = new ShippingDetail()
+            };
+
+            return View(model);
         }
 
         public IActionResult Index()
@@ -55,6 +75,14 @@ namespace MvcWebUI.Controllers
             };
 
             return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Complete(ShippingDetail shippingDetail)
+        {
+            TempData.Add("message", "We took your order succesfully.");
+            _cartSessionHelper.Clear();
+            return RedirectToAction("Index", "Cart");
         }
     }
 }

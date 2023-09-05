@@ -12,7 +12,7 @@ namespace Business.Abstract
     {
         void AddToCart(Cart cart,Product product);
         void RemoveFromCart(Cart cart,int productId);
-        void AdjustQuantity(Cart cart,int productId,string adjustType);
+        string AdjustQuantity(Cart cart,int productId,string adjustType);
         List<CartLine> CartList(Cart cart);
     }
 }

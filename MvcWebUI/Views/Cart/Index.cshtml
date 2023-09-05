@@ -16,7 +16,6 @@ else
     <table class="table table-responsive">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Product Name</th>
                 <th>Description</th>
                 <th>Price</th>
@@ -27,7 +26,6 @@ else
         @foreach (var cartLine in Model.Cart.CartLines)
         {
             <tr>
-                <td>@cartLine.Product.ProductId</td>
                 <td>@cartLine.Product.ProductName</td>
                 <td>@cartLine.Product.QuantityPerUnit</td>
                 <td>@cartLine.Product.UnitPrice</td>

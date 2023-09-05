@@ -26,7 +26,7 @@ namespace Business.Concrete
             }
         }
 
-        public void AdjustQuantity(Cart cart, int productId, string adjustType)
+        public string AdjustQuantity(Cart cart, int productId, string adjustType)
         {
             CartLine cartLine = cart.CartLines.FirstOrDefault(c => c.Product.ProductId == productId);
             if (adjustType == "increase" && cartLine.Product.UnitsInStock > cartLine.Quantity)
@@ -34,8 +34,11 @@ namespace Business.Concrete
             else if (adjustType == "decrease" && cartLine.Quantity != 1)
                 cartLine.Quantity -= 1;
             else if (adjustType == "decrease" && cartLine.Quantity == 1)
+            {
                 cart.CartLines.Remove(cartLine);
-            return;
+                return "removed";
+            }
+            return "";
         }
 
         public List<CartLine> CartList(Cart cart)

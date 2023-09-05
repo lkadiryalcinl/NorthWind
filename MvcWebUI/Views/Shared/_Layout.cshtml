@@ -33,6 +33,12 @@
     <div class="container">
         <main role="main" class="pb-3">
             <div class="row">
+                @if (TempData["message"] != null)
+                {
+                    <div class="alert alert-success">@TempData["message"]</div>
+                }
+            </div>
+            <div class="row">
                 <div class="col-3">
                     @await Component.InvokeAsync("CategoryList")
                 </div>
