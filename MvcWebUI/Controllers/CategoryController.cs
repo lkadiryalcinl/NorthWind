@@ -17,7 +17,7 @@ namespace MvcWebUI.Controllers
         {
             var model = new CategoryListViewModel
             {
-                Categories = _categoryService.GetAll()
+                Categories = _categoryService.GetAll().Data
             };
 
             return View(model);

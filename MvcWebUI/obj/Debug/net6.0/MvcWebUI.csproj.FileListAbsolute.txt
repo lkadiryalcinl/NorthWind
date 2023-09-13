@@ -1,3 +1,12 @@
+C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\obj\Debug\net6.0\MvcWebUI.csproj.AssemblyReference.cache
+C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\obj\Debug\net6.0\MvcWebUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\obj\Debug\net6.0\MvcWebUI.AssemblyInfoInputs.cache
+C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\obj\Debug\net6.0\MvcWebUI.AssemblyInfo.cs
+C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\obj\Debug\net6.0\MvcWebUI.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\obj\Debug\net6.0\MvcWebUI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\obj\Debug\net6.0\MvcWebUI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\obj\Debug\net6.0\MvcWebUI.RazorAssemblyInfo.cache
+C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\obj\Debug\net6.0\MvcWebUI.RazorAssemblyInfo.cs
 C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\bin\Debug\net6.0\appsettings.json
 C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\bin\Debug\net6.0\MvcWebUI.staticwebassets.runtime.json
@@ -285,6 +294,8 @@ C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\bin\Debug\net6.0\refs\System.Xml.X
 C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\bin\Debug\net6.0\refs\System.Xml.XPath.dll
 C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\bin\Debug\net6.0\refs\System.Xml.XPath.XDocument.dll
 C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\bin\Debug\net6.0\refs\WindowsBase.dll
+C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\bin\Debug\net6.0\Autofac.dll
+C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\bin\Debug\net6.0\Autofac.Extensions.DependencyInjection.dll
 C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\bin\Debug\net6.0\Azure.Core.dll
 C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\bin\Debug\net6.0\Azure.Identity.dll
 C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\bin\Debug\net6.0\Humanizer.dll
@@ -524,15 +535,6 @@ C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\bin\Debug\net6.0\Business.pdb
 C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\bin\Debug\net6.0\Core.pdb
 C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\bin\Debug\net6.0\DataAccess.pdb
 C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\bin\Debug\net6.0\Entities.pdb
-C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\obj\Debug\net6.0\MvcWebUI.csproj.AssemblyReference.cache
-C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\obj\Debug\net6.0\MvcWebUI.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\obj\Debug\net6.0\MvcWebUI.AssemblyInfoInputs.cache
-C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\obj\Debug\net6.0\MvcWebUI.AssemblyInfo.cs
-C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\obj\Debug\net6.0\MvcWebUI.csproj.CoreCompileInputs.cache
-C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\obj\Debug\net6.0\MvcWebUI.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\obj\Debug\net6.0\MvcWebUI.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\obj\Debug\net6.0\MvcWebUI.RazorAssemblyInfo.cache
-C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\obj\Debug\net6.0\MvcWebUI.RazorAssemblyInfo.cs
 C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\obj\Debug\net6.0\staticwebassets\msbuild.MvcWebUI.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\obj\Debug\net6.0\staticwebassets\msbuild.build.MvcWebUI.props
 C:\Users\ASUS\source\repos\NorthWind\MvcWebUI\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.MvcWebUI.props

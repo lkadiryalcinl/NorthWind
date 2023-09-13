@@ -23,7 +23,7 @@ namespace MvcWebUI.Controllers
 
         public IActionResult AddToCart(int productId)
         {
-            Product product = _productService.GetByID(productId);
+            Product product = _productService.GetByID(productId).Data;
             var cart = _cartSessionHelper.GetCart("cart");
 
             _cartService.AddToCart(cart, product);
@@ -34,7 +34,7 @@ namespace MvcWebUI.Controllers
 
         public IActionResult RemoveFromCart(int productId)
         {
-            Product product = _productService.GetByID(productId);
+            Product product = _productService.GetByID(productId).Data;
             var cart = _cartSessionHelper.GetCart("cart");
 
             _cartService.RemoveFromCart(cart, productId);
@@ -45,7 +45,7 @@ namespace MvcWebUI.Controllers
 
         public IActionResult AdjustQuantity(int productId, string adjustType)
         {
-            Product product = _productService.GetByID(productId);
+            Product product = _productService.GetByID(productId).Data;
             var cart = _cartSessionHelper.GetCart("cart");
 
             string res = _cartService.AdjustQuantity(cart, productId, adjustType);

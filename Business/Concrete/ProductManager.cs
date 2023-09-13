@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -18,25 +20,47 @@ namespace Business.Concrete
             _productDal = productDal;
         }
 
-        public List<Product> GetAll(int categoryId)
+        public IDataResult<List<Product>> GetAll(int categoryId)
         {
-            return _productDal.GetList(filter: p => p.CategoryId == categoryId);
+            var list = _productDal.GetList(filter: p => p.CategoryId == categoryId);
+            return new SuccessDataResult<List<Product>>(list);
         }
 
-        public List<Product> GetAll()
+        public IDataResult<List<Product>> GetAll()
         {
-            return _productDal.GetList();
+            var list = _productDal.GetList();
+            return new SuccessDataResult<List<Product>>(list);
         }
 
-        public Product GetByID(int productId)
+        public IDataResult<Product> GetByID(int productId)
         {
             var prod = _productDal.Get(filter: p => p.ProductId == productId);
-            return prod;
+            return new SuccessDataResult<Product>(prod);
         }
 
-        public Product GetProductByCategory(int categoryId)
+        public IDataResult<Product> GetProductByCategory(int categoryId)
         {
-            return _productDal.Get(filter:p => p.CategoryId == categoryId);
+            var prod = _productDal.Get(filter: p => p.CategoryId == categoryId);
+            return new SuccessDataResult<Product>(prod);
         }
+
+        public IResult Add(Product product)
+        {
+            _productDal.Add(product);
+            return new SuccessResult(Messages.PRODUCT_ADDED);
+        }
+
+        public IResult Delete(Product product)
+        {
+            _productDal.Delete(product);
+            return new SuccessResult(Messages.PRODUCT_DELETED);
+        }
+
+        public IResult Update(Product product)
+        {
+            _productDal.Update(product);
+            return new SuccessResult(Messages.PRODUCT_UPDATED);
+        }
+
     }
 }

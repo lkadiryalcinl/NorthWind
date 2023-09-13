@@ -1,11 +1,8 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
@@ -18,9 +15,34 @@ namespace Business.Concrete
             _categoryDal = categoryDal;
         }
 
-        public List<Category> GetAll()
+        public IDataResult<Category> GetByID(int categoryId)
         {
-            return _categoryDal.GetList();
+            var category = _categoryDal.Get(filter: p=> p.CategoryId == categoryId);
+            return new SuccessDataResult<Category>(category);
+        }
+
+        IDataResult<List<Category>> ICategoryService.GetAll()
+        {
+            var list = _categoryDal.GetList();
+            return new SuccessDataResult<List<Category>>(list);
+        }
+
+        public IResult Add(Category category)
+        {
+            _categoryDal.Add(category);
+            return new SuccessResult(Messages.CATEGORY_ADDED);
+        }
+
+        public IResult Delete(Category category)
+        {
+            _categoryDal.Delete(category);
+            return new SuccessResult(Messages.CATEGORY_DELETED);
+        }
+
+        public IResult Update(Category category)
+        {
+            _categoryDal.Update(category);
+            return new SuccessResult(Messages.CATEGORY_UPDATED);
         }
     }
 }
