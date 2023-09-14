@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -16,27 +17,32 @@ namespace Business.Concrete
 
         public IResult Add(Supplier supplier)
         {
-            throw new NotImplementedException();
+            _supplierDal.Add(supplier);
+            return new SuccessResult(Messages.SUPPLIER_ADDED);
         }
 
         public IResult Delete(Supplier supplier)
         {
-            throw new NotImplementedException();
+            _supplierDal.Delete(supplier);
+            return new SuccessResult(Messages.SUPPLIER_DELETED);
         }
 
         public IDataResult<List<Supplier>> GetAll()
         {
-            throw new NotImplementedException();
+            var list = _supplierDal.GetList();
+            return new SuccessDataResult<List<Supplier>>(list);
         }
 
         public IDataResult<Supplier> GetByID(int supplierId)
         {
-            throw new NotImplementedException();
+            var supplier = _supplierDal.Get(filter: s => s.SupplierId == supplierId);
+            return new SuccessDataResult<Supplier>(supplier);
         }
 
         public IResult Update(Supplier supplier)
         {
-            throw new NotImplementedException();
+            _supplierDal.Update(supplier);
+            return new SuccessResult(Messages.SUPPLIER_UPDATED);
         }
     }
 }

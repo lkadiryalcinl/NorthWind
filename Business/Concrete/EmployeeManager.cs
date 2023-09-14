@@ -1,47 +1,48 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
     public class EmployeeManager : IEmployeeService
     {
-        private readonly ICustomerDal _customerDal;
+        private readonly IEmployeeDal _employeeDal;
 
-        public EmployeeManager(ICustomerDal customerDal)
+        public EmployeeManager(IEmployeeDal employeeDal)
         {
-            _customerDal = customerDal;
+            _employeeDal = employeeDal;
         }
 
         public IResult Add(Employee employee)
         {
-            throw new NotImplementedException();
+            _employeeDal.Add(employee);
+            return new SuccessResult(Messages.EMPLOYEE_ADDED);
         }
 
         public IResult Delete(Employee employee)
         {
-            throw new NotImplementedException();
+            _employeeDal.Delete(employee);
+            return new SuccessResult(Messages.EMPLOYEE_DELETED);
         }
 
         public IDataResult<List<Employee>> GetAll()
         {
-            throw new NotImplementedException();
+            var list = _employeeDal.GetList();
+            return new SuccessDataResult<List<Employee>>(list);
         }
 
         public IDataResult<Employee> GetByID(int employeeId)
         {
-            throw new NotImplementedException();
+            var employee = _employeeDal.Get(filter: e => e.EmployeeId == employeeId);
+            return new SuccessDataResult<Employee>(employee);
         }
 
         public IResult Update(Employee employee)
         {
-            throw new NotImplementedException();
+            _employeeDal.Update(employee);
+            return new SuccessResult(Messages.EMPLOYEE_UPDATED);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -16,37 +17,44 @@ namespace Business.Concrete
 
         public IResult Add(Order order)
         {
-            throw new NotImplementedException();
+            _orderDal.Add(order);
+            return new SuccessResult(Messages.ORDER_ADDED);
         }
 
         public IResult Delete(Order order)
         {
-            throw new NotImplementedException();
+            _orderDal.Delete(order);
+            return new SuccessResult(Messages.ORDER_DELETED);
         }
 
         public IDataResult<List<Order>> GetAll()
         {
-            throw new NotImplementedException();
+            var list = _orderDal.GetList();
+            return new SuccessDataResult<List<Order>>(list);
         }
 
         public IDataResult<List<Order>> GetAll(string customerId)
         {
-            throw new NotImplementedException();
+            var list = _orderDal.GetList(filter: o => o.CustomerId == customerId);
+            return new SuccessDataResult<List<Order>>(list);
         }
 
         public IDataResult<List<Order>> GetAll(int employeeId)
         {
-            throw new NotImplementedException();
+            var list = _orderDal.GetList(filter: p => p.EmployeeId == employeeId);
+            return new SuccessDataResult<List<Order>>(list);
         }
 
         public IDataResult<Order> GetByID(int orderId)
         {
-            throw new NotImplementedException();
+            var order = _orderDal.Get(filter:  o => o.OrderId == orderId);
+            return new SuccessDataResult<Order>(order);
         }
 
         public IResult Update(Order order)
         {
-            throw new NotImplementedException();
+            _orderDal.Update(order);
+            return new SuccessResult(Messages.ORDER_UPDATED);
         }
     }
 }
