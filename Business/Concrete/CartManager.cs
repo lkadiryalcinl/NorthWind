@@ -13,7 +13,7 @@ namespace Business.Concrete
     {
         public void AddToCart(Cart cart, Product product)
         {
-            CartLine cartLine = cart.CartLines.FirstOrDefault(c => c.Product.ProductId == product.ProductId);
+            CartLine? cartLine = cart.CartLines.FirstOrDefault(c => c.Product.ProductId == product.ProductId);
             if (cartLine == null)
             {
                 cart.CartLines.Add(new CartLine { Product = product, Quantity = 1 });
@@ -28,7 +28,7 @@ namespace Business.Concrete
 
         public string AdjustQuantity(Cart cart, int productId, string adjustType)
         {
-            CartLine cartLine = cart.CartLines.FirstOrDefault(c => c.Product.ProductId == productId);
+            CartLine? cartLine = cart.CartLines.FirstOrDefault(c => c.Product.ProductId == productId);
             if (adjustType == "increase" && cartLine.Product.UnitsInStock > cartLine.Quantity)
                 cartLine.Quantity += 1;
             else if (adjustType == "decrease" && cartLine.Quantity != 1)
@@ -48,7 +48,7 @@ namespace Business.Concrete
 
         public void RemoveFromCart(Cart cart, int productId)
         {
-            CartLine cartLine = cart.CartLines.FirstOrDefault(c => c.Product.ProductId == productId);
+            CartLine? cartLine = cart.CartLines.FirstOrDefault(c => c.Product.ProductId == productId);
             cart.CartLines.Remove(cartLine);
             return;
         }

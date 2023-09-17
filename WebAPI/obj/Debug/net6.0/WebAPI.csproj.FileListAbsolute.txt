@@ -9,6 +9,7 @@ C:\Users\ASUS\source\repos\NorthWind\WebAPI\bin\Debug\net6.0\Autofac.dll
 C:\Users\ASUS\source\repos\NorthWind\WebAPI\bin\Debug\net6.0\Autofac.Extensions.DependencyInjection.dll
 C:\Users\ASUS\source\repos\NorthWind\WebAPI\bin\Debug\net6.0\Azure.Core.dll
 C:\Users\ASUS\source\repos\NorthWind\WebAPI\bin\Debug\net6.0\Azure.Identity.dll
+C:\Users\ASUS\source\repos\NorthWind\WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\ASUS\source\repos\NorthWind\WebAPI\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\ASUS\source\repos\NorthWind\WebAPI\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\ASUS\source\repos\NorthWind\WebAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
@@ -17,7 +18,9 @@ C:\Users\ASUS\source\repos\NorthWind\WebAPI\bin\Debug\net6.0\Microsoft.EntityFra
 C:\Users\ASUS\source\repos\NorthWind\WebAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\ASUS\source\repos\NorthWind\WebAPI\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\ASUS\source\repos\NorthWind\WebAPI\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\ASUS\source\repos\NorthWind\WebAPI\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
 C:\Users\ASUS\source\repos\NorthWind\WebAPI\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\ASUS\source\repos\NorthWind\WebAPI\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Binder.dll
 C:\Users\ASUS\source\repos\NorthWind\WebAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\ASUS\source\repos\NorthWind\WebAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\ASUS\source\repos\NorthWind\WebAPI\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll

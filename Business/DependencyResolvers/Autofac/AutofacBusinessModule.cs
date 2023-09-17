@@ -1,6 +1,8 @@
 ﻿using Autofac;
 using Business.Abstract;
 using Business.Concrete;
+using Core.Utilities.Security.Helpers;
+using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
 using DataAccess.Concrete.Contexts;
 using DataAccess.Concrete.EntityFramework;
@@ -40,6 +42,12 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<TerritoryManager>().As<ITerritoryService>();
             builder.RegisterType<EfTerritoryDal>().As<ITerritoryDal>();
+
+            builder.RegisterType<UserManager>().As<IUserService>();
+            builder.RegisterType<EfUserDal>().As<IUserDal>();
+
+            builder.RegisterType<AuthManager>().As<IAuthService>();
+            builder.RegisterType<JWTHelper>().As<ITokenHelper>();
         }
     }
 }

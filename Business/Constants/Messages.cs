@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Azure.Core;
+using Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,5 +45,12 @@ namespace Business.Constants
         public static string TERRITORY_ADDED = "Territory succesfully added.";
         public static string TERRITORY_DELETED = "Territory succesfully deleted.";
         public static string TERRITORY_UPDATED = "Territory succesfully updated.";
+
+        public static string USER_NOT_FOUND = "User not found.";
+        public static string PASSWORD_ERROR = "Password is wrong.";
+        public static string USER_ALREADY_EXISTS = "User already exists.";
+        public static string LOGIN_SUCCESS = "User successfully logined.";
+        public static string USER_REGISTERED = "User successfully registered.";
+        public static string ACCESS_TOKEN_CREATED = "Access token is created.";
     }
 }
