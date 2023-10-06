@@ -1,7 +1,6 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -10,6 +9,7 @@ namespace WebAPI.Controllers
     //AUTO-MAPPER EKLE
     [Route("api/v1/[controller]")]
     [ApiController]
+
     public class ProductsController : ControllerBase
     {
         private IProductService _productService;
@@ -34,6 +34,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getallbycategory")]
+        [Authorize()]
         public IActionResult GetAllByCategory(int categoryId)
         {
             var result = _productService.GetAll(categoryId);
@@ -47,6 +48,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getbyid")]
+        [Authorize()]
         public IActionResult Get(int productId)
         {
             var result = _productService.GetByID(productId);
@@ -60,6 +62,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
+        [Authorize(Roles = "Admin,Employee")]
         public IActionResult Add(Product product)
         {
             var result = _productService.Add(product);
@@ -73,6 +76,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpDelete("delete")]
+        [Authorize(Roles = "Admin,Employee")]
         public IActionResult Delete(Product product)
         {
             var result = _productService.Delete(product);
@@ -86,6 +90,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPut("update")]
+        [Authorize(Roles = "Admin,Employee")]
         public IActionResult Update(Product product)
         {
             var result = _productService.Update(product);

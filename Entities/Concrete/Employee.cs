@@ -12,7 +12,7 @@ namespace Entities.Concrete
     {
         [Key]
         public int EmployeeId { get; set; }
-        public int ReportsTo { get; set; }
+        public int ReportsTo { get; set; } = 0;
         public string? LastName { get; set; }
         public string? FirstName { get; set; }
         public string? Title { get; set; }

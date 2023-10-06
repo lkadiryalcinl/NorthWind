@@ -47,7 +47,7 @@ namespace Business.Concrete
 
         public IDataResult<Order> GetByID(int orderId)
         {
-            var order = _orderDal.Get(filter:  o => o.OrderId == orderId);
+            var order = _orderDal.Get(filter: o => o.OrderId == orderId);
             return new SuccessDataResult<Order>(order);
         }
 

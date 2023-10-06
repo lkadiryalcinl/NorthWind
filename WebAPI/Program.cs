@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Core.Utilities.Security.Core;
 using Core.Utilities.Security.Encryption;
+using Entities.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+
+builder.Host.ConfigureContainer<ContainerBuilder>(
+   builder => builder.RegisterModule(new AutofacBusinessModule()));
 
 var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
@@ -31,19 +37,19 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).
             IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
         };
     });
-
-builder.Services.AddCors(options =>
+builder.Services.AddSwaggerGen(c =>
 {
-    options.AddPolicy("AllowOrigin",
-
-        builder => builder.WithOrigins("http://localhost:3000"));
-
+    c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
 });
 
-builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Services.AddAuthorization();
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("AllowOrigin",
 
-builder.Host.ConfigureContainer<ContainerBuilder>(
-   builder => builder.RegisterModule(new AutofacBusinessModule()));
+//        builder => builder.WithOrigins("http://localhost:3000"));
+
+//});
 
 var app = builder.Build();
 
@@ -54,12 +60,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(builder => builder.WithOrigins("http://localhost:3000").AllowAnyHeader());
+//app.UseCors(builder => builder.WithOrigins("http://localhost:3000").AllowAnyHeader());
 
 app.UseHttpsRedirection();
-app.UseRouting();
 
 app.UseAuthentication();
+
+app.UseRouting();
+
 app.UseAuthorization();
 
 app.MapControllers();

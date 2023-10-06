@@ -1,4 +1,5 @@
-﻿using Core.Utilities.Results;
+﻿using Core.DataAccess.Abstract;
+using Core.Utilities.Results;
 using Entities.Concrete;
 
 namespace Business.Abstract

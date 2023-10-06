@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -18,6 +19,7 @@ namespace WebAPI.Controllers
 
 
         [HttpGet("getall")]
+        [Authorize()]
         public IActionResult GetAll()
         {
             var result = _categoryService.GetAll();
@@ -31,6 +33,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getbyid")]
+        [Authorize()]
         public IActionResult Get(int categoryId)
         {
             var result = _categoryService.GetByID(categoryId);
@@ -44,6 +47,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
+        [Authorize(Roles = "Admin,Employee")]
         public IActionResult Add(Category category)
         {
             var result = _categoryService.Add(category);
@@ -57,6 +61,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpDelete("delete")]
+        [Authorize(Roles = "Admin,Employee")]
         public IActionResult Delete(Category category)
         {
             var result = _categoryService.Delete(category);
@@ -70,6 +75,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPut("update")]
+        [Authorize(Roles = "Admin,Employee")]
         public IActionResult Update(Category category)
         {
             var result = _categoryService.Update(category);

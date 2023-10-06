@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Entities.Concrete;
 using Core.Utilities.Hashing;
 using Core.Utilities.Results;
 using Core.Utilities.Security.Core;
@@ -17,7 +18,8 @@ namespace Business.Concrete
     public class AuthManager : IAuthService
     {
         private readonly IUserService _userService;
-        private ITokenHelper _tokenHelper;
+        private readonly ITokenHelper _tokenHelper;
+        private readonly IUserOperationClaimService _userOperationClaimService;
 
         public AuthManager(IUserService userService, ITokenHelper tokenHelper)
         {
@@ -64,6 +66,11 @@ namespace Business.Concrete
                 Status = true
             };
             _userService.Add(user);
+            //_userOperationClaimService.Add(new UserOperationClaim
+            //{
+            //    OperationClaimId = 3,
+            //    UserId = user.Id
+            //});
             return new SuccessDataResult<User>(user, Messages.USER_REGISTERED);
         }
 

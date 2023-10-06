@@ -4,9 +4,7 @@ using Business.Concrete;
 using Core.Utilities.Security.Helpers;
 using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
-using DataAccess.Concrete.Contexts;
 using DataAccess.Concrete.EntityFramework;
-using Microsoft.EntityFrameworkCore;
 
 namespace Business.DependencyResolvers.Autofac
 {
@@ -48,6 +46,9 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JWTHelper>().As<ITokenHelper>();
+
+            builder.RegisterType<UserOperationClaimManager>().As<IUserOperationClaimService>();
+            builder.RegisterType<EfUserOperationClaimDal>().As<IUserOperationClaimDal>();
         }
     }
 }
