@@ -1,8 +1,10 @@
 ﻿using Autofac;
 using Business.Abstract;
 using Business.Concrete;
+using Business.Session.Concrete;
 using Core.Utilities.Security.Helpers;
 using Core.Utilities.Security.JWT;
+using Core.Utilities.Session.Abstract;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 
@@ -13,6 +15,7 @@ namespace Business.DependencyResolvers.Autofac
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<CartManager>().As<ICartService>().SingleInstance();
+            builder.RegisterType<CartSessionHelper>().As<ICartSessionHelper>().SingleInstance();
 
             builder.RegisterType<CategoryManager>().As<ICategoryService>();
             builder.RegisterType<EfCategoryDal>().As<ICategoryDal>();
@@ -41,11 +44,11 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<TerritoryManager>().As<ITerritoryService>();
             builder.RegisterType<EfTerritoryDal>().As<ITerritoryDal>();
 
-            builder.RegisterType<UserManager>().As<IUserService>();
-            builder.RegisterType<EfUserDal>().As<IUserDal>();
+            builder.RegisterType<UserManager>().As<IUserService>().SingleInstance();
+            builder.RegisterType<EfUserDal>().As<IUserDal>().SingleInstance();
 
-            builder.RegisterType<AuthManager>().As<IAuthService>();
-            builder.RegisterType<JWTHelper>().As<ITokenHelper>();
+            builder.RegisterType<AuthManager>().As<IAuthService>().SingleInstance();
+            builder.RegisterType<JWTHelper>().As<ITokenHelper>().SingleInstance();
 
             builder.RegisterType<UserOperationClaimManager>().As<IUserOperationClaimService>();
             builder.RegisterType<EfUserOperationClaimDal>().As<IUserOperationClaimDal>();

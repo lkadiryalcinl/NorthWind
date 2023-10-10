@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Core.Utilities.Security.Core;
 using Core.Utilities.Security.Encryption;
-using Entities.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +36,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).
             IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
         };
     });
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
@@ -50,6 +50,10 @@ builder.Services.AddAuthorization();
 //        builder => builder.WithOrigins("http://localhost:3000"));
 
 //});
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSession();
+builder.Services.AddDistributedMemoryCache();
 
 var app = builder.Build();
 
@@ -65,6 +69,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
+
+app.UseSession();
 
 app.UseRouting();
 

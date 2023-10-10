@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "VU73cB1VkLYPDNIQXqqTteVJtU/v11Uq/YoAz1I9P7sMd+wUySZKVQuOgZWlNUOYEITJlkn9VJ1Y4ErkaJlLow==",
+  "dgSpecHash": "uZhLOPKTdTZhKtU9/AFbqjOkKTI+Fi6NzqWuj+voxxu4CMEJ3B5KGn0gV5lXQJcJCc6CDRvpDLmsaHpxRqpBiQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\ASUS\\source\\repos\\NorthWind\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\ASUS\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.0\\microsoft.aspnetcore.authentication.jwtbearer.6.0.0.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
