@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Core.Utilities.Session.Abstract;
 using Entities.Concrete;
+using Entities.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,25 +33,33 @@ namespace WebAPI.Controllers
 
 
         [HttpPost("addToCart")]
-        public IActionResult Add(int productId)
+        public IActionResult Add(Product product)
         {
-            var product = _productService.GetByID(productId);
+            var selectedProduct = _productService.GetByID(product.ProductId);
             var cart = _cartSessionHelper.GetCart("cart");
-            _cartService.AddToCart(cart, product.Data);
+            var addedItem = _cartService.AddToCart(cart, selectedProduct.Data);
             _cartSessionHelper.SetCart("cart", cart);
 
-            return Ok(cart);
+            return Ok(addedItem);
         }
 
         [HttpDelete("removeFromCart")]
-        public IActionResult Delete(int productId)
+        public IActionResult Delete(CartProductDto cartProductDto)
         {
             var cart = _cartSessionHelper.GetCart("cart");
-            _cartService.RemoveFromCart(cart, productId);
+            var removedItem = _cartService.RemoveFromCart(cart, cartProductDto.ProductId);
             _cartSessionHelper.SetCart("cart", cart);
 
-            return Ok(cart);
+            return Ok(removedItem);
         }
 
+        [HttpPut("adjustQuantity")]
+        public IActionResult Put(CartProductDto cartProductDto)
+        {
+            var cart = _cartSessionHelper.GetCart("cart");
+            _cartService.AdjustQuantity(cart, cartProductDto.ProductId, cartProductDto.AdjustType);
+            _cartSessionHelper.SetCart("cart", cart);
+            return Ok();
+        }
     }
 }
